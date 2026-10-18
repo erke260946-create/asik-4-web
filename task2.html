@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registration for AITU Hack 2026</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Errors appear only after the user changed a field (:user-invalid),
+       not when the page opens. No JavaScript. */
+    .form-control:user-invalid,
+    .form-select:user-invalid {
+      border-color: var(--bs-form-invalid-border-color);
+      box-shadow: none;
+    }
+    .form-control:user-valid,
+    .form-select:user-valid {
+      border-color: var(--bs-form-valid-border-color);
+    }
+    .form-check-input:user-invalid {
+      border-color: var(--bs-form-invalid-border-color);
+    }
+    .form-check-input:user-invalid ~ .form-check-label {
+      color: var(--bs-form-invalid-color);
+    }
+
+    /* show the message right after an invalid field */
+    .form-control:user-invalid ~ .invalid-feedback,
+    .form-select:user-invalid ~ .invalid-feedback,
+    .form-check-input:user-invalid ~ .invalid-feedback {
+      display: block;
+    }
+    /* radio group: show the message if any radio inside is invalid */
+    .radio-group:has(.form-check-input:user-invalid) .invalid-feedback {
+      display: block;
+    }
+  </style>
+</head>
+<body class="bg-light">
+  <main class="container py-4 py-md-5">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8">
+
+        <h1 class="h3 mb-1">Registration for AITU Hack 2026</h1>
+        <p class="text-body-secondary">Fields marked with * are required.</p>
+
+        <form action="#" method="get" class="card card-body shadow-sm">
+          <div class="row g-3">
+
+            <!-- Full name: 2-40 characters -->
+            <div class="col-12">
+              <label for="fullname" class="form-label">Full name *</label>
+              <input type="text" class="form-control" id="fullname" name="fullname"
+                     required minlength="2" maxlength="40" autocomplete="name">
+              <div class="invalid-feedback">Enter 2–40 characters.</div>
+            </div>
+
+            <!-- University email: type=email -->
+            <div class="col-12">
+              <label for="email" class="form-label">University email *</label>
+              <input type="email" class="form-control" id="email" name="email"
+                     required autocomplete="email">
+              <div class="invalid-feedback">Enter a valid email address, e.g. name@astanait.edu.kz.</div>
+            </div>
+
+            <!-- Age: whole number 16-30 -->
+            <div class="col-12 col-md-6">
+              <label for="age" class="form-label">Age *</label>
+              <input type="number" class="form-control" id="age" name="age"
+                     required min="16" max="30" step="1">
+              <div class="invalid-feedback">Enter a whole number from 16 to 30.</div>
+            </div>
+
+            <!-- Team size: whole number 1-4 -->
+            <div class="col-12 col-md-6">
+              <label for="team" class="form-label">Team size *</label>
+              <input type="number" class="form-control" id="team" name="team"
+                     required min="1" max="4" step="1">
+              <div class="invalid-feedback">Enter a whole number from 1 to 4.</div>
+            </div>
+
+            <!-- Track: select, first option has empty value -->
+            <div class="col-12">
+              <label for="track" class="form-label">Track *</label>
+              <select class="form-select" id="track" name="track" required>
+                <option value="">Choose…</option>
+                <option value="web">Web</option>
+                <option value="mobile">Mobile</option>
+                <option value="ai">AI</option>
+                <option value="gamedev">GameDev</option>
+              </select>
+              <div class="invalid-feedback">Choose a track.</div>
+            </div>
+
+            <!-- Arrival day: date 20-22 Nov 2026 -->
+            <div class="col-12 col-md-6">
+              <label for="arrival" class="form-label">Arrival day *</label>
+              <input type="date" class="form-control" id="arrival" name="arrival"
+                     required min="2026-11-20" max="2026-11-22">
+              <div class="invalid-feedback">Choose a date from 20 to 22 November 2026.</div>
+            </div>
+
+            <!-- Check-in time: 09:00-18:00, every 30 min (step in seconds) -->
+            <div class="col-12 col-md-6">
+              <label for="checkin" class="form-label">Check-in time *</label>
+              <input type="time" class="form-control" id="checkin" name="checkin"
+                     required min="09:00" max="18:00" step="1800">
+              <div class="invalid-feedback">Choose a time from 09:00 to 18:00, every 30 minutes.</div>
+            </div>
+
+            <!-- Entry fee: 0-5000, step 500 -->
+            <div class="col-12">
+              <label for="fee" class="form-label">Entry fee (₸) *</label>
+              <input type="number" class="form-control" id="fee" name="fee"
+                     required min="0" max="5000" step="500">
+              <div class="invalid-feedback">Enter an amount from 0 to 5000 ₸ in steps of 500.</div>
+            </div>
+
+            <!-- Experience level: 3 radios, same name -->
+            <div class="col-12">
+              <fieldset class="radio-group">
+                <legend class="form-label fs-6">Experience level *</legend>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="level" id="level-beginner" value="beginner" required>
+                  <label class="form-check-label" for="level-beginner">Beginner</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="level" id="level-middle" value="intermediate" required>
+                  <label class="form-check-label" for="level-middle">Intermediate</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="level" id="level-advanced" value="advanced" required>
+                  <label class="form-check-label" for="level-advanced">Advanced</label>
+                </div>
+                <div class="invalid-feedback">Choose your experience level.</div>
+              </fieldset>
+            </div>
+
+            <!-- GitHub profile: optional, full URL -->
+            <div class="col-12">
+              <label for="github" class="form-label">GitHub profile</label>
+              <input type="url" class="form-control" id="github" name="github"
+                     placeholder="https://github.com/username">
+              <div class="invalid-feedback">Enter a full link starting with https://</div>
+            </div>
+
+            <!-- Password: 8-20 characters -->
+            <div class="col-12">
+              <label for="password" class="form-label">Password *</label>
+              <input type="password" class="form-control" id="password" name="password"
+                     required minlength="8" maxlength="20" autocomplete="new-password">
+              <div class="invalid-feedback">Use 8–20 characters.</div>
+            </div>
+
+            <!-- Motivation: 50-300 characters -->
+            <div class="col-12">
+              <label for="motivation" class="form-label">Motivation *</label>
+              <textarea class="form-control" id="motivation" name="motivation" rows="4"
+                        required minlength="50" maxlength="300"></textarea>
+              <div class="invalid-feedback">Write 50–300 characters.</div>
+            </div>
+
+            <!-- Rules agreement -->
+            <div class="col-12">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rules" name="rules" value="yes" required>
+                <label class="form-check-label" for="rules">I agree with the rules *</label>
+                <div class="invalid-feedback">You must accept the rules.</div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </main>
+</body>
+</html>
